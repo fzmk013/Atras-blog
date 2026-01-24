@@ -11,23 +11,22 @@ const GlobalStyles = createGlobalStyle`
     --font-size-20: clamp(10px, 2vw, 20px);
     --font-size-24: clamp(16px, 2vw, 24px);
     --font-size-26: clamp(18px, 2.2vw, 26px);
+    --font-size-28: clamp(20px, 2.3vw, 28px);
     --font-size-30: clamp(25px, 2.5vw, 30px);
     --font-size-32: clamp(28px, 2.5vw, 32px);
     --font-size-40: clamp(36px, 3vw, 40px);
     --font-size-48: clamp(44px, 3.5vw, 48px);
 
     // FONTS WEIGHT
-    --font-weight-thin: 100;
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
+    --font-weight-light: 400;
+    --font-weight-regular: 500;
+    --font-weight-medium: 600;
     --font-weight-bold: 700;
 
    &, &.light-mode {
-      --font-color-default: #000000; //text in figma
 
-
-
+    /* Grey */
+    --color-grey-0 : #ffffff;
 
       /* Green Palette from Figma (Group 1) */
       --color-primary-100: #D0FDBD;
@@ -56,16 +55,6 @@ const GlobalStyles = createGlobalStyle`
       --color-tertiary-500: #374F26;
       --color-tertiary-600: #1E2D13;
       --color-tertiary-700: #0B1305;
-
-      /* Grey Palette from Figma */
-      --color-grey-0: #FFFFFF; // white => section in figma
-      --color-grey-100: #EFF1EE;
-      --color-grey-200: #CCD2CA;
-      --color-grey-300: #A6ABA4;
-      --color-grey-400: #818580;
-      --color-grey-500: #5E615D;
-      --color-grey-600: #3D3F3C;
-      --color-grey-700: #1F201E;
 
       --color-danger: #FF6B6B; 
       --backdrop-color: rgba(255, 255, 255, 0.1);
@@ -98,13 +87,14 @@ const GlobalStyles = createGlobalStyle`
     }
 
   &.dark-mode {
-    --font-color-default: #C7C7C7;
+    --font-color-default: #0000;
 
-    --background-color :  #272728;
+    /* --background-color :  #272728; */
 
       /* Grey */
-      // --color-grey-0: #1F1F23; //خوشگله
-      --color-grey-0: #363637; //اسهال
+      --color-grey-0: #fff;
+
+
       --color-primary-100 : #8AE7491A;
       --color-primary-200 : #87F9CF;
       --color-primary-400: #4ED9A5;
@@ -126,18 +116,6 @@ const GlobalStyles = createGlobalStyle`
       --color-grey-800: #f3f4f6;
       --color-grey-900: #f9fafb;
 
-
-      // --color-grey-0: #000000; // black
-      // --color-grey-50: #111827;
-      // --color-grey-100: #1f2937;
-      // --color-grey-200: #374151;
-      // --color-grey-300: #4b5563;
-      // --color-grey-400: #6b7280;
-      // --color-grey-500: #9ca3af;
-      // --color-grey-600: #d1d5db;
-      // --color-grey-700: #e5e7eb;
-      // --color-grey-800: #f3f4f6;
-      // --color-grey-900: #f9fafb;
 
       --color-danger: #FF6B6B; 
       
@@ -163,16 +141,6 @@ const GlobalStyles = createGlobalStyle`
       --image-opacity: 90%;
     }
 
-    /* Indigo */
-    // --color-brand-50: #eef2ff;
-    // --color-brand-100: #e0e7ff;
-    // --color-brand-200: #c7d2fe;
-    // --color-brand-500: #6366f1;
-    // --color-brand-600: #4f46e5;
-    // --color-brand-700: #4338ca;
-    // --color-brand-800: #3730a3;
-    // --color-brand-900: #312e81;
-
        --color-brand-500 : #007AFF;
 
     // BORDER RADIUS
@@ -188,36 +156,47 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    transition: all ease-in-out 0.5s;
   }
 
   html {
     font-size: clamp(50%, 0.5vw + 0.8rem, 62.5%);
+    background-color: #212121;
+
   }
 
   body {
     font-family: 'IRANSans', Arial, sans-serif; 
-    /* color: var(--font-color-default, #111827); */
-    /* color: red; */
+    color: var(--color-grey-0);
+    
     min-height: 100vh;
     line-height: 1.5;
     font-size: 1.6rem;
+
+    transition: all ease-in-out 0.5s;
   }
 
   input,
   button,
   textarea,
   select {
-    font: inherit;
-    color: inherit;
+    /* font: inherit; */
+    /* color: inherit; */
 
     outline: none; 
+
     &:focus {
       outline: none;
     }
+
+  /* background: none !important; */
+
+
   }
 
   button {
     cursor: pointer;
+    /* background-color:  !important; */
   }
 
   *:disabled {
@@ -226,23 +205,10 @@ const GlobalStyles = createGlobalStyle`
 
   select:disabled,
   input:disabled {
-    /* background-color: var(--color-grey-200); */
     color: var(--color-grey-500);
     top: auto; bottom: 100%;
   }
   
-  input:focus,
-  button:focus,
-  textarea:focus,
-  select:focus {
-    // outline: 2px solid var(--color-brand-600);
-    // outline-offset: -1px;
-    outline: none;
-  }
-
-  button:has(svg) {
-    line-height: 0;
-  }
 
   a {
     color: inherit;

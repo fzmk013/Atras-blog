@@ -23,7 +23,7 @@ background-color: #212121;
 background-repeat: no-repeat;
 /* background-size: contain; */
 background-size: cover;
- /* background-position: center; */
+ background-position: center;
   display: flex;
   flex-direction: column;
 
