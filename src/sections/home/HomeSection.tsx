@@ -2,16 +2,19 @@ import styled from "styled-components";
 import Text from "../../ui/Text";
 import { motion } from "framer-motion";
 import { AccentIcon, AccentIconreverse, StarAccentIcon } from "../../icons/AccentIcons";
+import Button from "../../components/Button";
 
 function HomeSection() {
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      whileInView="view"
-      transition={{ duration: 1 , ease: "easeInOut"}}
-    >
-      <Intro>
+    <section>
+      {/* INTRO */}
+      <Intro
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        whileInView="view"
+        transition={{ duration: 1 , ease: "easeInOut"}}
+      >
         <IntroBlur />
         
         {/* Decorative icons container - separate from content */}
@@ -33,13 +36,60 @@ function HomeSection() {
             چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
           </Text>
         </TextWrapper>
+        <ContactUsButton/>
       </Intro>
-    </motion.div>
+
+      {/* INFO CARDS */}
+      <InfoCard/>
+    </section>
   );
 }
 export default HomeSection;
 
+function ContactUsButton() {
+  return (
+      <ButtonWrapper>
+        <Button variant="outlined">
+          فرم تماس با ما
+        </Button>
+      </ButtonWrapper>
+  )
+}
 
+function InfoCard() {
+  return(
+      <InfoBox
+          initial="hidden" //initial value
+           whileInView="visible" //final value
+           viewport={{once : true , amount: 0.5 }}
+           transition={{duration : 1.5}}
+           variants={{
+            hidden : {opacity : 0, x:-50},//initial condition
+            visible : {opacity : 1 , x:0},//final condition
+           }}
+      >
+        <InfoWrapper>
+          {
+            InfoCardField.map((i) => {
+              return(
+                <StyledSingleInfoCard key={i.key}>
+                  <Text variant="bold 40">{i.header} +</Text>
+                  <Text variant="regular 16" color="#B1B1B1" >{i.description}</Text>
+                </StyledSingleInfoCard>
+              )
+            })
+          }
+        </InfoWrapper>
+      </InfoBox>
+  )
+}
+
+const InfoCardField = [
+  {key:"1", header: "1000", description: "لورم ایپسوم"},
+  {key:"2", header: "88", description: "لورم ایپسوم"},
+  {key:"1", header: "500", description: "لورم ایپسوم"},
+  {key:"1", header: "150", description: "لورم ایپسوم"},
+]
 const DecorativeIcons = styled.div`
   position: absolute;
   inset: 0;
@@ -51,26 +101,25 @@ const DecorativeIcons = styled.div`
 `;
 
 
-const Intro = styled.div`
+const Intro = styled(motion.div)`
   position: relative;
   /* width: 95%; */
   /* margin: auto; */
   width: clamp(400px, 75vw, 714px);
-  height: clamp(200px, 50vw, 400px);
+  height: clamp(200px, 50vw, 450px);
 
   border-radius: 50%;
   /* padding: clamp(1.5rem, 4vw, 4rem); */
-  padding: 8rem 5rem;
+  padding: 9rem 5rem;
   /* padding */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   /* margin-top: 5rem; */
 
-  /* border: 1px solid rgba(255, 255, 255, 0.2); */
 
-
-  text-align: center;
+  /* text-align: center; */
   color: white;
 
   margin: auto; /* centers on page */
@@ -90,7 +139,6 @@ const Intro = styled.div`
     margin-top: 6rem;
 }
 `;
-
 
 const IntroBlur = styled.div`
   position: absolute;
@@ -133,3 +181,65 @@ const TextWrapper = styled.div`
   text-align: center;
 
 `;
+
+const ButtonWrapper = styled.div`
+  z-index: 1;
+  margin-top: -2rem;
+
+  @media (max-width: 900px) {
+    display: none;
+}
+
+`;
+
+const InfoBox = styled(motion.div)`
+  /* height: 140px; */
+  background-color: #272727;
+  border-radius: 32px;
+  box-shadow: 0px 0px 20px #000000;
+  margin: auto;
+  margin-top: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(100px, 50vw, 800px);
+`
+
+const InfoWrapper = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+  padding: 2rem;
+`
+
+const StyledSingleInfoCard  = styled.li`
+    border-left: 1px solid #B1B1B1;
+
+    width: 100%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    @media (max-width: 900px) {
+    border-bottom: 1px solid #B1B1B1;
+    border-left: none;
+    padding: 2rem 0rem;
+  }
+
+  &:last-child {
+    border: none;
+  }
+
+    
+`
+

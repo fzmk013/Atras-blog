@@ -193,9 +193,10 @@ const StyledBarIconSvg = styled(motion.button)`
     width: clamp(28px, 6vw, 36px);
     height: clamp(28px, 6vw, 36px);
     stroke : #B1B1B1;
+    cursor: pointer;
   }
 
-  /* transition: all ease-in-out 1s; */
+  transition: all ease-in-out 1s;
 
   background: none !important;
 

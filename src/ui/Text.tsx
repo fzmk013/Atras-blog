@@ -23,6 +23,7 @@ type TextVariant =
   | "medium 24"
   | "medium 32"
   | "medium 30"
+  | "bold 40"
   | "bold 16";
 
 export type ColorVariant =
@@ -198,6 +199,12 @@ const TextElement = styled.span<TextProps>`
       case "bold 16":
         baseStyles = `
           font-size: var(--font-size-16);
+          font-weight: var(--font-weight-bold);
+        `;
+        break;
+      case "bold 40":
+        baseStyles = `
+          font-size: var(--font-size-40);
           font-weight: var(--font-weight-bold);
         `;
         break;

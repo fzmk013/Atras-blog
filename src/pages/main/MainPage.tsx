@@ -1,8 +1,9 @@
+import Layout from "../../layout/Layout"
 import HomeSection from "../../sections/home/HomeSection"
 
 function MainPage() {
   return (
-    <>
+    <Layout>
     <HomeSection/>
     {/* <HomeSection/>
     <HomeSection/>
@@ -22,7 +23,7 @@ function MainPage() {
     <HomeSection/>
     <HomeSection/>
     <HomeSection/> */}
-    </>
+    </Layout>
   )
 }
 

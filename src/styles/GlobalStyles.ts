@@ -156,7 +156,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    transition: all ease-in-out 0.5s;
+    /* transition: all ease-in-out 0.5s; */
   }
 
   html {
@@ -173,7 +173,7 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     font-size: 1.6rem;
 
-    transition: all ease-in-out 0.5s;
+    /* transition: all ease-in-out 0.5s; */
   }
 
   input,
@@ -196,6 +196,7 @@ const GlobalStyles = createGlobalStyle`
 
   button {
     cursor: pointer;
+     transition: all ease-in-out 0.3s;
     /* background-color:  !important; */
   }
 
