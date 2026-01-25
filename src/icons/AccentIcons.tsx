@@ -51,15 +51,16 @@ export function AccentIconreverse({width="23.892", height="20.336" , top, right,
 }
 
 const StyledAccentSvg = styled.div<iconProps>`
-  position: relative;
+  position: absolute;  
 
   ${(props) => props.top && `top: ${props.top};`}
   ${(props) => props.right && `right: ${props.right};`}
   ${(props) => props.left && `left: ${props.left};`}
 
   z-index: 2;
-  /* Rotation animation */
-  animation: rotate 20s linear infinite;
+
+  /* Rotation and sparkle animations */
+  animation: rotate 20s linear infinite,  3s ease-in-out infinite;
   
   @keyframes rotate {
     from {
@@ -70,23 +71,27 @@ const StyledAccentSvg = styled.div<iconProps>`
     }
   }
 
-  /* Pulsing glow animation */
-  /* animation: rotate 20s linear infinite, pulse 3s ease-in-out infinite; */
-/*   
-  @keyframes pulse {
+  /* Cute pulsing glow */
+  @keyframes sparkle {
     0%, 100% {
-      filter: drop-shadow(0 0 8px rgba(138, 231, 73, 0.6))
-              drop-shadow(0 0 16px rgba(138, 231, 73, 0.4))
-              drop-shadow(0 0 24px rgba(138, 231, 73, 0.2));
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.4))
+              drop-shadow(0 0 8px rgba(138, 231, 73, 0.3));
     }
     50% {
-      filter: drop-shadow(0 0 12px rgba(138, 231, 73, 0.8))
-              drop-shadow(0 0 24px rgba(138, 231, 73, 0.6))
-              drop-shadow(0 0 36px rgba(138, 231, 73, 0.3));
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))
+              drop-shadow(0 0 16px rgba(138, 231, 73, 0.5))
+              drop-shadow(0 0 24px rgba(138, 231, 73, 0.2));
     }
-  } */
+  }
 
+  &:hover {
+    animation-play-state: paused;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8))
+            drop-shadow(0 0 20px rgba(138, 231, 73, 0.6))
+            drop-shadow(0 0 30px rgba(138, 231, 73, 0.3));
+  }
 
-  /* cursor: pointer; */
-  /* transition: filter 0.3s ease; */
+  cursor: pointer;
+  transition: filter 0.3s ease;
 `;
+
