@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
     --font-size-26: clamp(18px, 2.2vw, 26px);
     --font-size-28: clamp(20px, 2.3vw, 28px);
     --font-size-30: clamp(25px, 2.5vw, 30px);
-    --font-size-32: clamp(28px, 2.5vw, 32px);
+    --font-size-32: clamp(26px, 2.5vw, 32px);
     --font-size-40: clamp(36px, 3vw, 40px);
     --font-size-48: clamp(44px, 3.5vw, 48px);
 
