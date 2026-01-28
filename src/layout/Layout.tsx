@@ -1,16 +1,22 @@
 import styled from "styled-components"
 import patterns from "../../public/images/PATTERN.png";
 import HeaderSection from "../sections/header/HeaderSection";
-import FooterSection from "../sections/footer/FooterSection";
+// import PatternIcon from "../icons/PatternIcon";
+// import FooterSection from "../sections/footer/FooterSection";
 
 
 function Layout({children} : any) {
   return (
+    <>
     <StyledLayout dir="rtl">
         <HeaderSection/>
-        {children}
+        {/* <MainContentWrapper> */}
+         {children}
+        {/* </MainContentWrapper> */}
         {/* <FooterSection/> */}
     </StyledLayout>
+        {/* <PatternIcon top="1500px" left="-0.3%" /> */}
+    </>
   )
 }
 
@@ -18,19 +24,46 @@ export default Layout
 
 
 const StyledLayout = styled.div`
-min-height: 100vh;
-background-image: url(${patterns});
-background-color: rgb(33, 33, 33);
-/* background: radial-gradient(258.19% 74.24% at 50% 12.21%, #E9F5FC 0%, rgba(203, 220, 243, 0.87) 22%, rgba(5, 52, 186, 0) 100%), radial-gradient(63.78% 39.75% at 50% 18.41%, #29ba05 0%, rgba(5, 52, 186, 0) 100%), radial-gradient(100% 100% at 50% 0%, #29ba05  0%, rgba(5, 52, 186, 0) 100%) black; */
-background-repeat: no-repeat;
-/* background-size: contain; */
-background-size: cover;
- background-position: center;
+  min-height: 100vh;
+  background-color: #212121;
+  position: relative;
+  overflow: hidden;
+
   display: flex;
   flex-direction: column;
-
   align-items: center;
   text-align: center;
-  margin: auto;
 
-  `
+  /* TOP PATTERN AREA */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 600px; /* 👈 controls pattern height */
+
+    background-image: url(${patterns});
+    background-repeat: repeat;
+    background-size: auto;
+    opacity: 0.5;
+
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* CONTENT ABOVE BACKGROUND */
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+`;
+
+// const MainContentWrapper = styled.div`
+// border: 1px solid red;
+// padding: 5rem;
+// display: flex;
+// flex-direction: column;
+// gap: 5rem;
+
+//   `
