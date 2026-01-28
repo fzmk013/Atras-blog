@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-function PatternIcon({width="205", height="70.25" , top, right, left, bottom}: iconProps) {
+function PatternIcon({width="205", height="70.25" , top, right, left}: iconProps) {
   return (
 <StyledPatternSvg top={top} right={right} left={left}>
    <svg id="pattern" xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 205 70.25">
