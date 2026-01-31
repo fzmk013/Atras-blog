@@ -1,28 +1,12 @@
 import Layout from "../../layout/Layout"
 import HomeSection from "../../sections/home/HomeSection"
+import WhyUsSection from "../../sections/why-us/WhyUsSection"
 
 function MainPage() {
   return (
     <Layout>
-    <HomeSection/>
-    {/* <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/>
-    <HomeSection/> */}
+      <HomeSection/>
+      <WhyUsSection/>
     </Layout>
   )
 }

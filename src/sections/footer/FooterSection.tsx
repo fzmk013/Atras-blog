@@ -12,6 +12,6 @@ function FooterSection() {
 
 export default FooterSection
 
-const StyledFooterSection = styled.div`
+const StyledFooterSection = styled.footer`
 margin-top: 5rem;
 `

@@ -7,7 +7,7 @@ import Button from "../../components/Button";
 function HomeSection() {
 
   return (
-    <section>
+    <section style={{border:"1px soli blue"}}>
       {/* INTRO */}
       <Intro
         initial={{ opacity: 0 }}
